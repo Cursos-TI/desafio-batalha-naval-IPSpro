@@ -1,40 +1,40 @@
 #include <stdio.h>
 
 // Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
-
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
+    int tabuleiro [10] [10] = {0}; //definindo a matriz tabuleiro com tamanho de 10 linhas e 10 colunas e todas as células iguais a 0.
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    //Local do navio horizontal
+    tabuleiro [7] [7] = 3;
+    tabuleiro [7] [8] = 3;
+    tabuleiro [7] [9] = 3;
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+    //Local do navio vertical
+    tabuleiro [2] [4] = 3;
+    tabuleiro [3] [4] = 3;
+    tabuleiro [4] [4] = 3;
+    tabuleiro [5] [4] = 3;
 
+    printf("--- Bem Vindo ao Tabuleiro de Batalha Naval em C! O único \"BattleShip-C\"---\n\n"); //Título. A \ é necessária para " em printf
+
+    printf("   A  B  C  D  E  F  G  H  I  J\n"); //primeira linha do tabuleiro. As letras.
+
+    for (int i = 0; i < 10; i++) { //loop for com 10 repetições (0 a 9). Loop Aninhado externo.
+
+        //bloco if para corrigir espaçamento extra do dígito 10.
+        if (i < 9) { //se i for igual a 8:
+        printf("%d  ", i+1); //imprimir no console de 1 a 9 com dois espaços na frente
+        } else {printf("%d ", i+1);} //caso contrário, imprimir o valor 10 com um espaço apenas
+
+        for (int j = 0; j < 10; j++) { //loop for com mais 10 repetições (0 a 9). Loop aninhado interno.
+
+            printf("%d  ", tabuleiro [i] [j]); //imprimir no console todas as células da matriz.
+        }
+        printf("\n"); //descer uma linha após o término do loop interno(cada loop interno imprime uma linha da matriz)
+    }
+    printf("\n");
+    
     return 0;
 }
