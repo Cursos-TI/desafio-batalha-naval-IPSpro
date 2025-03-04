@@ -27,7 +27,7 @@ int main() {
     tabuleiro [1] [2] = 3;
     
 
-    printf("--- Bem Vindo ao Tabuleiro de Batalha Naval em C! O único \"BattleShip-C\"---\n\n"); //Título. A \ é necessária para " em printf
+    printf("--- Bem Vindo ao Tabuleiro de Batalha Naval em C! O único \"BattleShip-C\" ---\n\n"); //Título. A \ é necessária para " em printf
 
     printf("   A  B  C  D  E  F  G  H  I  J\n"); //primeira linha do tabuleiro. As letras.
 
@@ -45,6 +45,46 @@ int main() {
         printf("\n"); //descer uma linha após o término do loop interno(cada loop interno imprime uma linha da matriz)
     }
     printf("\n");
+
+
+    char tab1 [10] = {'A','B','C','D','E','F','G','H','I','J'};
+    int  tab2 [10] = { 1,  2,  3,  4,  5,  6,  7,  8,  9,  10};
+    char tabela [10] [10] [4];
+    
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            sprintf(tabela[i][j], "%c%d", tab1[i], tab2[j]);
+        }
+        
+    }
+    
+
+    
+
+
+    int poder = 0;
+    int casa;
+    printf ("É hora do Ataque!\nEscolha qual PODER utilizar:\n\n");
+
+    while (poder < 1) {
+        printf ("1. Cone\n2. Cruz\n3. Octaedro");
+        scanf("%d", &poder);
+        getchar();
+
+        switch (poder)
+        {
+        case 1:
+            printf("Escolha a casa para lançar o PODER: (Ex: A1, B2, E3)\n");
+            scanf("%d", &casa);
+            
+            break;
+        
+        default:
+            break;
+        }
+    }
     
     return 0;
 }
