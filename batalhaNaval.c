@@ -17,6 +17,16 @@ int main() {
     tabuleiro [4] [4] = 3;
     tabuleiro [5] [4] = 3;
 
+    //Local do navio diagonal 1
+    tabuleiro [7] [0] = 3;
+    tabuleiro [6] [1] = 3;
+    tabuleiro [5] [2] = 3;
+
+    //Local do navio diagonal 2
+    tabuleiro [0] [1] = 3;
+    tabuleiro [1] [2] = 3;
+    
+
     printf("--- Bem Vindo ao Tabuleiro de Batalha Naval em C! O único \"BattleShip-C\"---\n\n"); //Título. A \ é necessária para " em printf
 
     printf("   A  B  C  D  E  F  G  H  I  J\n"); //primeira linha do tabuleiro. As letras.
