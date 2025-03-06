@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 // Desafio Batalha Naval - MateCheck
 
@@ -40,7 +41,7 @@ int main() {
 
         for (int j = 0; j < 10; j++) { //loop for com mais 10 repetições (0 a 9). Loop aninhado interno.
 
-            printf("%d  ", tabuleiro [i] [j]); //imprimir no console todas as células da matriz.
+            printf("%d  ", tabuleiro [j] [i]); //imprimir no console todas as células da matriz.
         }
         printf("\n"); //descer uma linha após o término do loop interno(cada loop interno imprime uma linha da matriz)
     }
@@ -61,30 +62,132 @@ int main() {
     }
     
 
-    
-
-
     int poder = 0;
-    int casa;
+    char casa[3];
     printf ("É hora do Ataque!\nEscolha qual PODER utilizar:\n\n");
 
-    while (poder < 1) {
-        printf ("1. Cone\n2. Cruz\n3. Octaedro");
+    while (poder < 1 || poder > 3) {
+        printf ("1. Cone\n2. Cruz\n3. Octaedro\n");
         scanf("%d", &poder);
-        getchar();
 
         switch (poder)
         {
+
         case 1:
             printf("Escolha a casa para lançar o PODER: (Ex: A1, B2, E3)\n");
-            scanf("%d", &casa);
-            
+            scanf("%s", casa);
+            for (int j = 0; j < 10; j++) {
+                for (int i = 0; i < 10; i++) {
+                    if (strcmp(tabela[i][j], casa) == 0) {
+                        tabuleiro[i] [j] = 1;
+                        tabuleiro[i] [j+1] = 1;
+                        tabuleiro[i] [j-1] = 1;
+                        tabuleiro[i+1] [j] = 1;
+                        tabuleiro[i-1] [j] = 1;
+                        tabuleiro[i+1] [j+1] = 1;
+                        tabuleiro[i+2] [j+1] = 1;
+                        tabuleiro[i-1] [j+1] = 1;
+                        tabuleiro[i-2] [j+1] = 1;
+                    }
+                }
+            }
+
+            printf("\nBOOM!\n\n");
+
+            printf("   A  B  C  D  E  F  G  H  I  J\n");
+            for (int i = 0; i < 10; i++) { //loop for com 10 repetições (0 a 9). Loop Aninhado externo.
+
+                //bloco if para corrigir espaçamento extra do dígito 10.
+                if (i < 9) { //se i for igual a 8:
+                printf("%d  ", i+1); //imprimir no console de 1 a 9 com dois espaços na frente
+                } else {printf("%d ", i+1);} //caso contrário, imprimir o valor 10 com um espaço apenas
+        
+                for (int j = 0; j < 10; j++) { //loop for com mais 10 repetições (0 a 9). Loop aninhado interno.
+        
+                    printf("%d  ", tabuleiro [j] [i]); //imprimir no console todas as células da matriz.
+                }
+                printf("\n");
+            }
+
             break;
         
+        case 2:
+            printf("Escolha a casa para lançar o PODER: (Ex: A1, B2, E3)\n");
+            scanf("%s", casa);
+            for (int j = 0; j < 10; j++) {
+                for (int i = 0; i < 10; i++) {
+                    if (strcmp (tabela[i] [j], casa) == 0) {
+                        tabuleiro [i] [j] = 1;
+                        tabuleiro [i] [j+1] = 1;
+                        tabuleiro [i] [j-1] = 1;
+                        tabuleiro [i+1] [j] = 1;
+                        tabuleiro [i-1] [j] = 1;
+                    }
+                }
+            }
+
+            printf("\nBOOM!\n\n");
+
+            printf("   A  B  C  D  E  F  G  H  I  J\n");
+            for (int i = 0; i < 10; i++) { //loop for com 10 repetições (0 a 9). Loop Aninhado externo.
+
+                //bloco if para corrigir espaçamento extra do dígito 10.
+                if (i < 9) { //se i for igual a 8:
+                printf("%d  ", i+1); //imprimir no console de 1 a 9 com dois espaços na frente
+                } else {printf("%d ", i+1);} //caso contrário, imprimir o valor 10 com um espaço apenas
+        
+                for (int j = 0; j < 10; j++) { //loop for com mais 10 repetições (0 a 9). Loop aninhado interno.
+        
+                    printf("%d  ", tabuleiro [j] [i]); //imprimir no console todas as células da matriz.
+                }
+                printf("\n");
+            }
+
+            break;
+
+        case 3:
+            
+            printf("Escolha a casa para lançar o PODER: (Ex: A1, B2, E3)\n");
+            scanf("%s", casa);
+            for (int j = 0; j < 10; j++) {
+                for (int i = 0; i < 10; i++) {
+                    if (strcmp (tabela[i] [j], casa) == 0) {
+                        tabuleiro [i] [j] = 1;
+                        tabuleiro [i] [j+1] = 1;
+                        tabuleiro [i] [j-1] = 1;
+                        tabuleiro [i+1] [j] = 1;
+                        tabuleiro [i+2] [j] = 1;
+                        tabuleiro [i-1] [j] = 1;
+                        tabuleiro [i-2] [j] = 1;
+                    }
+                }
+            }
+
+            printf("\nBOOM!\n\n");
+
+            printf("   A  B  C  D  E  F  G  H  I  J\n");
+            for (int i = 0; i < 10; i++) { //loop for com 10 repetições (0 a 9). Loop Aninhado externo.
+
+                //bloco if para corrigir espaçamento extra do dígito 10.
+                if (i < 9) { //se i for igual a 8:
+                printf("%d  ", i+1); //imprimir no console de 1 a 9 com dois espaços na frente
+                } else {printf("%d ", i+1);} //caso contrário, imprimir o valor 10 com um espaço apenas
+        
+                for (int j = 0; j < 10; j++) { //loop for com mais 10 repetições (0 a 9). Loop aninhado interno.
+        
+                    printf("%d  ", tabuleiro [j] [i]); //imprimir no console todas as células da matriz.
+                }
+                printf("\n");
+            }
+
+        break;
+
         default:
+            printf("Esta não é uma opção válida!");
             break;
         }
     }
     
+    printf("\n");
     return 0;
 }
